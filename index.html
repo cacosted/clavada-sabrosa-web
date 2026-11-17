@@ -15,8 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-CM-YFY65.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DfFEiSke.css">
+    <script type="module" crossorigin src="./assets/index-DnuSAsr4.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cp2I-MPc.css">
   </head>
   <body>
     <canvas id="game"></canvas>
@@ -56,9 +56,9 @@
             <li>
               Corre por las <b>pistas con flechas</b> para ir más rápido y pisa los <b>discos</b> para saltar alto.
             </li>
-            <li>Salta con el mango cerca del aro rival para <b>clavarla</b>. Toda canasta vale <b>2</b>.</li>
-            <li>Antes de empezar cada uno elige su poder. 5 minutos; si hay empate, <b>canasta de oro</b>.</li>
-            <li><b>Esc</b> abre el menú de pausa.</li>
+            <li><b>Doble salto</b> con el mango cerca del aro rival para <b>clavarla</b> (te pueden cortar con una tacleada, un gigante o un cohete). Toda canasta vale <b>2</b>.</li>
+            <li>Antes de empezar cada uno elige su poder. Gana quien llegue primero a <b>5 canastas</b> (10 puntos) o vaya arriba a los 5 minutos; si hay empate, <b>canasta de oro</b>.</li>
+            <li><b>C</b> fija la cámara al mango · <b>Esc</b> abre el menú de pausa.</li>
           </ul>
         </details>
       </div>
@@ -116,21 +116,52 @@
         <div id="clock">5:00</div>
         <div class="score team-b"><span id="score-b">0</span><span class="team-name">Salados</span></div>
       </div>
+      <div id="match-point" hidden></div>
       <div id="center-message"></div>
       <div id="banner"></div>
       <div id="feed"></div>
+      <div id="toasts"></div>
       <div id="crosshair"></div>
       <div id="charge" hidden><div id="charge-fill"></div></div>
       <div id="prompt" hidden></div>
-      <div id="hype">
-        <div id="hype-label">Hype</div>
-        <div class="hype-bar"><div id="hype-fill"></div></div>
+      <div id="ability" title="">
+        <svg viewBox="0 0 80 80" aria-hidden="true">
+          <circle class="ability-track" cx="40" cy="40" r="34" />
+          <circle
+            id="ability-ring"
+            class="ability-fill"
+            cx="40"
+            cy="40"
+            r="34"
+            stroke-dasharray="213.6"
+            stroke-dashoffset="213.6"
+          />
+        </svg>
+        <div id="ability-icon"></div>
+        <div id="ability-label"></div>
       </div>
+      <ul class="controls-list">
+        <li id="hint-ball-camera"><kbd>C</kbd> Cámara al mango</li>
+        <li><kbd>Q</kbd> ¡Pásala! / pase</li>
+        <li><kbd>Shift</kbd> Taclear</li>
+        <li><kbd>Clic</kbd> Tirar · <kbd>E</kbd> Robar</li>
+        <li><kbd>Esc</kbd> Menú</li>
+      </ul>
       <div id="spectator" hidden>Estás mirando · entras en la próxima partida</div>
       <button id="click-to-play" class="btn primary">Haz clic para jugar</button>
-      <div class="hud-hints">Espacio saltar · Shift taclear · E robar · Q pase · F poder · Esc menú</div>
       <button id="mute-btn" class="icon-btn" title="Sonido">🔊</button>
     </div>
+
+    <div id="score-banner" aria-live="polite">
+      <div class="score-banner-strip">
+        <div id="score-banner-emblem" class="score-banner-emblem"></div>
+        <div class="score-banner-text">
+          <div id="score-banner-name"></div>
+          <div id="score-banner-title"></div>
+        </div>
+      </div>
+    </div>
+    <div id="wipe" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
 
     <section id="screen-powers" class="screen" hidden>
       <div class="panel powers-panel">
